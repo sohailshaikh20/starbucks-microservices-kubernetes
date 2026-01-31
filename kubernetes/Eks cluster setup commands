@@ -1,7 +1,7 @@
 (a) Create EKS Cluster (without node group)
 
 eksctl create cluster \
-  --name=Cloudaseem \
+  --name=Sohail \
   --region=ap-south-1 \
   --zones=ap-south-1a,ap-south-1b \
   --version=1.30 \
