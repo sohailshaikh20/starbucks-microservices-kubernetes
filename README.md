@@ -1,61 +1,115 @@
-## Hi there! this my new project
-**Welcome to the Starbuck App Deployment project! This project demonstrates how to deploy a StarBucks Clone Next.js application on Kubernetes cluster using modern DevOps tools, practices and following a DevSecOps approach.**
+# ☕ Cloud-Native Starbucks App Deployment on Kubernetes (DevSecOps)
 
-## 🛠️ **Tools & Services Used**
+## Overview
 
-| **Category**       | **Tools**                                                                                                                                                                                                 |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Version Control** | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)                                                                                                       |
-| **CI/CD**           | ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white)                                                                                                    |
-| **Code Quality**    | ![SonarQube](https://img.shields.io/badge/SonarQube-4E9BCD?style=flat-square&logo=sonarqube&logoColor=white)                                                                                              |
-| **Containerization**| ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)                                                                                                       |
-| **Orchestration**   | ![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)                                                                                          |
-| **Monitoring**      | ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white) ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white) |
-| **Security**        | ![OWASP](https://img.shields.io/badge/OWASP-000000?style=flat-square&logo=owasp&logoColor=white) ![Trivy](https://img.shields.io/badge/Trivy-00979D?style=flat-square&logo=trivy&logoColor=white)         |
-| **IAC**             | ![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=flat-square&logo=terraform&logoColor=white)
----
-## 🚦 **Project Stages**
+This project demonstrates how to deploy a **production-style, cloud-native application** on a Kubernetes cluster using modern **DevOps and DevSecOps practices**.
 
-### **Phase 1: Deployment to Docker Container**
-- Containerize the application using Docker.
-- Build and push Docker images to a container registry.
-- Run the application in a Docker container.
-
-### **Phase 2: Deployment to EKS Cluster with Monitoring**
-- Deploy the application to an **Amazon EKS (Elastic Kubernetes Service)** cluster.
-- Set up **Prometheus** and **Grafana** for monitoring and visualization.
-- Implement **Trivy** for vulnerability scanning and **OWASP** for security best practices.
+The app is inspired by a Starbucks-like frontend built with **Next.js**, but the primary focus of this repository is **infrastructure, automation, security, and observability** rather than UI cloning.  
+It was built to gain hands-on experience with real-world containerization, orchestration, and CI/CD workflows.
 
 ---
 
-## 📂 **Code Repository**
-Explore the code and contribute to the project:  
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Aseemakram19/starbucks-kubernetes.git)
+## ✨ Key Highlights
+
+- End-to-end **containerized application deployment**
+- Automated **CI/CD pipeline** with quality and security gates
+- **Kubernetes-based orchestration** on a managed cloud cluster (**Amazon EKS**)
+- Integrated **monitoring and observability** with Prometheus + Grafana
+- **Image vulnerability scanning** using Trivy
+- DevSecOps mindset from code ➜ pipeline ➜ cluster
 
 ---
-## 📹 **Project Video**
-Watch the step-by-step deployment process:  
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/VPJ4gesLXOc)
+
+## 🛠️ Tools & Technologies
+
+| Category | Tools |
+|--------|------|
+| Version Control | GitHub |
+| CI/CD | Jenkins |
+| Code Quality | SonarQube |
+| Containerization | Docker |
+| Orchestration | Kubernetes (Amazon EKS) |
+| Monitoring | Prometheus, Grafana |
+| Security | Trivy, OWASP principles |
+| Infrastructure as Code | Terraform |
 
 ---
-## 🚀 **Other DevOps Projects**
 
-| **Project**                                | **Video Link**                                                                                   |
-|--------------------------------------------|--------------------------------------------------------------------------------------------------|
-| **JAVA APPLICATION DEPLOYMENT Project**                   | [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=R98DHKqAEos) |
-| **Deployment of BINGO in Kubernetes Cluster Monitoring**  | [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/j6YxADVF0W8) |
-| **Real-time CICD pipeline Website Jenkins CI CD**         | [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/xGWx_cXb9DE) |
-| **DevOps Project , Application deployment on App server via Terraform, Jenkins, SonarQube**                     | [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/xGWx_cXb9DE) |
-| **Realtime NODE.js App deployment with PM2 , Shell script, Jenkins, SonarQube ,Github ,Domain SSL cert**                     | [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/MFtUCfQ1RX0) |
+## 🧩 Architecture Overview
 
-## 🤝 **Connect with Me**
+**Flow (high level):**
 
-Let's connect and discuss DevSecOps  
+1. Developer pushes code to GitHub  
+2. Jenkins pipeline runs build + tests + quality checks  
+3. Trivy scans Docker image for vulnerabilities  
+4. Image is pushed to a container registry  
+5. Kubernetes (EKS) pulls and deploys the image  
+6. Prometheus scrapes metrics and Grafana visualizes dashboards  
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohammed-aseem-akram/)  
+**Components:**
+- **Frontend**: Next.js application containerized using Docker  
+- **CI/CD**: Jenkins automates build, scan, and deployment stages  
+- **Cluster**: Amazon EKS for orchestration & scaling  
+- **Observability**: Prometheus metrics + Grafana dashboards  
+- **Security**: Trivy vulnerability scanning, OWASP-aligned practices  
 
+---
 
+## 🚦 Project Phases
 
+### Phase 1: Dockerization
 
+- Containerized the Next.js application using Docker
+- Built optimized Docker images
+- Pushed images to a container registry
+- Verified local container execution
 
+---
+
+### Phase 2: Kubernetes Deployment & Observability
+
+- Provisioned an **Amazon EKS cluster** (via Terraform)
+- Deployed the application using Kubernetes manifests
+- Configured **Prometheus** for metrics collection
+- Integrated **Grafana dashboards** for visualization
+- Added **Trivy image scanning** and applied **OWASP security best practices**
+
+---
+
+## 🔐 DevSecOps Approach
+
+Security is treated as a **first-class citizen**, not an afterthought:
+
+- **SonarQube** for code quality checks
+- **Trivy** for container image vulnerability scanning
+- Security checks integrated into the CI/CD pipeline
+- Kubernetes best practices for deployments and isolation
+
+---
+
+## 🎯 Why This Project?
+
+This repository was built to:
+
+- Go beyond simple demos and understand **real deployment workflows**
+- Learn how applications are **containerized, scanned, shipped, and orchestrated**
+- Practice **CI/CD**, **Kubernetes**, **cloud infrastructure**, and **observability**
+- Showcase hands-on DevOps/DevSecOps skills in a realistic setup
+
+---
+
+## 🚀 Future Improvements
+
+- Helm charts for simplified deployments  
+- Horizontal Pod Autoscaling (HPA)  
+- Centralized logging (Loki / ELK)  
+- GitOps workflow using ArgoCD or Flux  
+
+---
+
+## 🙌 Final Note
+
+This project is intended as a **learning-driven but production-minded** deployment example, demonstrating how modern apps are built, secured, monitored, and deployed in cloud-native environments.
+
+If you find it useful, feel free to ⭐ the repo!
 
