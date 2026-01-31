@@ -14,13 +14,13 @@ eksctl create cluster \
 
 eksctl utils associate-iam-oidc-provider \
   --region ap-south-1 \
-  --cluster Cloudaseem \
+  --cluster Sohail \
   --approve
 
 c. node group
 
 eksctl create nodegroup \
-  --cluster=Cloudaseem \
+  --cluster=Sohail \
   --region=ap-south-1 \
   --name=node2 \
   --node-type=t3.medium \
@@ -29,7 +29,7 @@ eksctl create nodegroup \
   --nodes-max=4 \
   --node-volume-size=20 \
   --ssh-access \
-  --ssh-public-key=starbucks1 \
+  --ssh-public-key=Sohail-Key \
   --managed \
   --asg-access \
   --external-dns-access \
